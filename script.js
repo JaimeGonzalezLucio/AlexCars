@@ -35,15 +35,32 @@ const addEventOnElements = function (elements, eventType, callback) {
 
 const navbar = document.querySelector("[data-navbar]");
 const navTogglers = document.querySelectorAll("[data-nav-toggler]");
+const navbarLinks = document.querySelectorAll(".navbar-link");
 const overlay = document.querySelector("[data-overlay]");
 
+const openNavbar = function () {
+  navbar.classList.add("active");
+  overlay.classList.add("active");
+  document.body.classList.add("nav-active");
+}
+
+const closeNavbar = function () {
+  navbar.classList.remove("active");
+  overlay.classList.remove("active");
+  document.body.classList.remove("nav-active");
+}
+
 const toggleNavbar = function () {
-  navbar.classList.toggle("active");
-  overlay.classList.toggle("active");
-  document.body.classList.toggle("nav-active");
+  if (navbar.classList.contains("active")) {
+    closeNavbar();
+    return;
+  }
+
+  openNavbar();
 }
 
 addEventOnElements(navTogglers, "click", toggleNavbar);
+addEventOnElements(navbarLinks, "click", closeNavbar);
 
 
 

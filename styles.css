@@ -762,6 +762,7 @@ body.nav-active { overflow: hidden; }
   right: 0;
   background-color: var(--black-alpha-80);
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   transition: var(--transition-2);
   z-index: 100;
@@ -769,7 +770,8 @@ body.nav-active { overflow: hidden; }
 
 .overlay.active {
   opacity: 1;
-  pointer-events: all;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 
